@@ -8,7 +8,7 @@ public class Notepads {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int _id;
+    Long _id;
 
     public Notepad getNotepad() {
         return notepad;
@@ -18,12 +18,13 @@ public class Notepads {
         this.notepad = notepad;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     Notepad notepad;
 
-    public Notepads(Notepad notepad) {
+   /* public Notepads(Notepad notepad) {
         this.notepad = notepad;
-    }
+    }*/
 
 
 }

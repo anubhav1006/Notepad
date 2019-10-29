@@ -1,6 +1,8 @@
 package service;
 
 import model.Notepads;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -16,7 +16,7 @@ public class SessionDAOimpl implements SessionDAO {
 
     @Override
     public List<Notepads> getAllNotepads() {
-        return entityManager.createQuery("from Notepad").getResultList();
+        return entityManager.createQuery("from Notepads").getResultList();
     }
 
 

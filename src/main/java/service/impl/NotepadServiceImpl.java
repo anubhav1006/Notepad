@@ -3,10 +3,14 @@ package service.impl;
 import dao.SessionDAO;
 import model.Notepads;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import service.NotepadService;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class NotepadServiceImpl implements NotepadService {
 
     @Autowired

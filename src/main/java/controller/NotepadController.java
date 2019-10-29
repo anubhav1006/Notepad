@@ -30,8 +30,9 @@ public class NotepadController {
 
     @RequestMapping(value = "/notepad/create", method = RequestMethod.POST)
     public Notepads createNotepad(@RequestBody Notepad notepad){
-        Notepad notepad1 = notepad;
-        Notepads newNotepad = new Notepads(notepad1);
+        Notepad notepad1 =(Notepad) notepad;
+        Notepads newNotepad = new Notepads();
+        newNotepad.setNotepad(notepad1);
         notepadService.create(newNotepad);
         return newNotepad;
     }

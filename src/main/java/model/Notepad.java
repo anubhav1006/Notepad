@@ -12,7 +12,7 @@ public class Notepad {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    String _id;
+    Long _id;
     @Column
     String user;
 
@@ -40,8 +40,9 @@ public class Notepad {
         this.user = user;
     }
 
-    public Notepad(String title, String user) {
+    public Notepad(String title, String user, String text) {
         this.title = title;
         this.user = user;
+        this.text = text;
     }
 }

@@ -1,17 +1,17 @@
 package dao;
-import model.Session;
+import model.Notepads;
 
 import java.util.List;
 
 public interface SessionDAO {
 
-    List<Session> getAllNotepads();
+    List<Notepads> getAllNotepads();
 
-    void create(Session session);
+    void create(Notepads notepads);
 
-    void update(Session session);
+    void update(Notepads notepads);
 
-    Session getApiRequestById(long id);
+    Notepads getApiRequestById(long id);
 
     void delete(long id);
 }

@@ -1,7 +1,7 @@
 package service.impl;
 
 import dao.SessionDAO;
-import model.Session;
+import model.Notepads;
 import org.springframework.beans.factory.annotation.Autowired;
 import service.NotepadService;
 
@@ -12,22 +12,22 @@ public class NotepadServiceImpl implements NotepadService {
     @Autowired
     private SessionDAO sessionDAO;
     @Override
-    public List<Session> getCurrentSession() {
+    public List<Notepads> getAllNotepads() {
         return sessionDAO.getAllNotepads();
     }
 
     @Override
-    public void create(Session session) {
-        sessionDAO.create(session);
+    public void create(Notepads notepads) {
+        sessionDAO.create(notepads);
     }
 
     @Override
-    public void update(Session session) {
-        sessionDAO.update(session);
+    public void update(Notepads notepads) {
+        sessionDAO.update(notepads);
     }
 
     @Override
-    public Session getApiRequestById(long id) {
+    public Notepads getApiRequestById(long id) {
         return sessionDAO.getApiRequestById(id);
     }
 

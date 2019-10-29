@@ -2,9 +2,9 @@ package model;
 
 import javax.persistence.*;
 
-@Table
+@Table(name = "Notepads")
 @Entity
-public class Session {
+public class Notepads {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +18,10 @@ public class Session {
         this.notepad = notepad;
     }
 
+    @OneToOne
     Notepad notepad;
-    public Session(Notepad notepad) {
+
+    public Notepads(Notepad notepad) {
         this.notepad = notepad;
     }
 

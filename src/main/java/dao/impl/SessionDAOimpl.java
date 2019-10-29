@@ -1,7 +1,7 @@
 package dao.impl;
 
 import dao.SessionDAO;
-import model.Session;
+import model.Notepads;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,29 +15,29 @@ public class SessionDAOimpl implements SessionDAO {
     EntityManager entityManager;
 
     @Override
-    public List<Session> getAllNotepads() {
-
+    public List<Notepads> getAllNotepads() {
+        return entityManager.createQuery("from Notepad").getResultList();
     }
 
 
     @Override
-    public void create(Session session) {
-        entityManager.persist(session);
+    public void create(Notepads notepads) {
+        entityManager.persist(notepads);
     }
 
     @Override
-    public void update(Session session) {
-        entityManager.merge(session);
+    public void update(Notepads notepads) {
+        entityManager.merge(notepads);
     }
 
     @Override
-    public Session getApiRequestById(long id) {
-        return entityManager.find(Session.class, id);
+    public Notepads getApiRequestById(long id) {
+        return entityManager.find(Notepads.class, id);
     }
 
     @Override
     public void delete(long id) {
-        Session apiRequest = getApiRequestById(id);
+        Notepads apiRequest = getApiRequestById(id);
         if (apiRequest != null) {
             entityManager.remove(apiRequest);
         }

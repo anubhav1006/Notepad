@@ -1,17 +1,16 @@
 package service;
 
-import model.Notepad;
-import model.Session;
+import model.Notepads;
 
 import java.util.List;
 
 public interface NotepadService {
-    List<Session> getCurrentSession();
-    void create(Session session);
+    List<Notepads> getAllNotepads();
+    void create(Notepads notepads);
 
-    void update(Session session);
+    void update(Notepads notepads);
 
-    Session getApiRequestById(long id);
+    Notepads getApiRequestById(long id);
 
     void delete(long id);
 }

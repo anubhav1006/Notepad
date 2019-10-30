@@ -15,4 +15,8 @@ public interface NotepadService {
     Notepads getApiRequestById(long id);
 
     void delete(long id);
+
+    void deleteChild(long id);
+
+    List<Notepads> allActiveNotepadIds();
 }

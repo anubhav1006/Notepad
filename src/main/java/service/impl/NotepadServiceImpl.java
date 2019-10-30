@@ -39,4 +39,14 @@ public class NotepadServiceImpl implements NotepadService {
     public void delete(long id) {
         sessionDAO.delete(id);
     }
+
+    @Override
+    public void deleteChild(long id) {
+        sessionDAO.deleteChild(id);
+    }
+
+    @Override
+    public List<Notepads> allActiveNotepadIds() {
+        return sessionDAO.getAllNotepadIds();
+    }
 }

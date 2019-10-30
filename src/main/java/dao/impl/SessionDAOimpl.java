@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.SessionDAO;
+import model.Notepad;
 import model.Notepads;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +17,7 @@ public class SessionDAOimpl implements SessionDAO {
 
     @Override
     public List<Notepads> getAllNotepads() {
-        return entityManager.createQuery("from Notepads").getResultList();
+        return entityManager.createQuery("from Notepad").getResultList();
     }
 
 
@@ -36,10 +37,27 @@ public class SessionDAOimpl implements SessionDAO {
     }
 
     @Override
+    public Notepad getChildApiRequestById(long id) {
+        return entityManager.find(Notepad.class, id);
+    }
+
+    @Override
     public void delete(long id) {
         Notepads apiRequest = getApiRequestById(id);
         if (apiRequest != null) {
             entityManager.remove(apiRequest);
         }
+    }
+    @Override
+    public void deleteChild(long id) {
+        Notepad apiRequest = getChildApiRequestById(id);
+        if (apiRequest != null) {
+            entityManager.remove(apiRequest);
+        }
+    }
+
+    @Override
+    public List<Notepads> getAllNotepadIds() {
+        return entityManager.createQuery("from Notepads").getResultList();
     }
 }

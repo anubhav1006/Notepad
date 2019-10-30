@@ -1,4 +1,5 @@
 package dao;
+import model.Notepad;
 import model.Notepads;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -15,5 +16,11 @@ public interface SessionDAO {
 
     Notepads getApiRequestById(long id);
 
+    Notepad getChildApiRequestById(long id);
+
     void delete(long id);
+
+    List<Notepads> getAllNotepadIds();
+
+    void deleteChild(long id);
 }

@@ -12,7 +12,19 @@ public class Notepad {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long _id;
+    Long notepad_id;
+
+    public Long getId() {
+        return notepad_id;
+    }
+
+    public void setId(Long notepad_id) {
+        this.notepad_id = notepad_id;
+    }
+
+    public Notepad() {
+    }
+
     @Column
     String user;
 

@@ -27,13 +27,23 @@ public class SessionDAOimpl implements SessionDAO {
     }
 
     @Override
-    public void update(Notepads notepads) {
-        entityManager.merge(notepads);
+    public void create(Notepad notepad) {
+        entityManager.persist(notepad);
+    }
+
+    @Override
+    public void update(Notepad notepad) {
+        entityManager.merge(notepad);
     }
 
     @Override
     public Notepads getApiRequestById(long id) {
         return entityManager.find(Notepads.class, id);
+    }
+
+    @Override
+    public Notepad getNotepadRequestById(long id) {
+        return entityManager.find(Notepad.class, id);
     }
 
     @Override

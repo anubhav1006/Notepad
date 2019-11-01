@@ -1,6 +1,7 @@
 package service.impl;
 
 import dao.SessionDAO;
+import model.Notepad;
 import model.Notepads;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,13 +27,23 @@ public class NotepadServiceImpl implements NotepadService {
     }
 
     @Override
-    public void update(Notepads notepads) {
-        sessionDAO.update(notepads);
+    public void create(Notepad notepad) {
+        sessionDAO.create(notepad);
+    }
+
+    @Override
+    public void update(Notepad notepad) {
+        sessionDAO.update(notepad);
     }
 
     @Override
     public Notepads getApiRequestById(long id) {
         return sessionDAO.getApiRequestById(id);
+    }
+
+    @Override
+    public Notepad getNotepadRequestById(long id) {
+        return sessionDAO.getNotepadRequestById(id);
     }
 
     @Override

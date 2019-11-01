@@ -11,10 +11,12 @@ public interface SessionDAO {
     List<Notepads> getAllNotepads();
 
     void create(Notepads notepads);
+    void create(Notepad notepad);
 
-    void update(Notepads notepads);
+    void update(Notepad notepad);
 
     Notepads getApiRequestById(long id);
+    Notepad getNotepadRequestById(long id);
 
     Notepad getChildApiRequestById(long id);
 

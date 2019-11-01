@@ -43,24 +43,23 @@ public class NotepadController {
     }
 
     @RequestMapping(value = "/notepad/create", method = RequestMethod.POST)
-    public Notepads createNotepad(@RequestBody Notepad notepad){
+    public Notepad createNotepad(@RequestBody Notepad notepad){
         Notepad notepad1 = notepad;
         Notepads newNotepad = new Notepads(notepad1);
         newNotepad.setNotepad(notepad1);
-        notepadService.create(newNotepad);
-        return newNotepad;
+        notepadService.create(notepad1);
+        return notepad1;
     }
 
     @RequestMapping(value = "/notepad/update/{id}", method = RequestMethod.PUT)
-    public Notepads updateNotepad(@PathVariable(value = "id") Long id, @RequestBody Notepad notepad){
+    public Notepad updateNotepad(@PathVariable(value = "id") Long id, @RequestBody Notepad notepad){
 
-        Notepads notepads = notepadService.getApiRequestById(id);
-        Notepad oldNotepad = notepads.getNotepad();
-        System.out.println(oldNotepad.getId());
-        notepadService.deleteChild(oldNotepad.getId());
-        notepads.setNotepad(notepad);
-        notepadService.update(notepads);
-        return notepads;
+        Notepad notepad1 = notepadService.getNotepadRequestById(id);
+        notepad1.setText(notepad.getText());
+        notepad1.setTitle(notepad.getTitle());
+        notepad1.setUser(notepad.getUser());
+        notepadService.update(notepad1);
+        return notepad1;
     }
     @RequestMapping(value = "/notepad/delete/{id}", method = RequestMethod.DELETE)
     public String deleteNotepad(@PathVariable(value = "id") Long id){

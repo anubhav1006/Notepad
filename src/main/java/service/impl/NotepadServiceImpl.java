@@ -17,7 +17,7 @@ public class NotepadServiceImpl implements NotepadService {
     @Autowired
     private SessionDAO sessionDAO;
     @Override
-    public List<Notepads> getAllNotepads() {
+    public List<Notepad> getAllNotepads() {
         return sessionDAO.getAllNotepads();
     }
 

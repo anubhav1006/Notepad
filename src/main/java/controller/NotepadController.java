@@ -22,7 +22,7 @@ public class NotepadController {
     }
 
     @RequestMapping(value = "/notepads", method = RequestMethod.GET)
-    public List<Notepads> allActiveNotepads(){
+    public List<Notepad> allActiveNotepads(){
         return notepadService.getAllNotepads();
     }
 
@@ -31,7 +31,7 @@ public class NotepadController {
         return notepadService.allActiveNotepadIds();
     }
 
-    @RequestMapping(value = "/notepadlist", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/notepadlist", method = RequestMethod.GET)
     public List<Notepad> allActiveNotepadDetails(){
 
         List<Notepad> list = new ArrayList<>();
@@ -40,7 +40,7 @@ public class NotepadController {
         }
 
         return list;
-    }
+    }*/
 
     @RequestMapping(value = "/notepad/create", method = RequestMethod.POST)
     public Notepad createNotepad(@RequestBody Notepad notepad){
@@ -65,6 +65,15 @@ public class NotepadController {
     public String deleteNotepad(@PathVariable(value = "id") Long id){
         notepadService.deleteChild(id);
         return "Deleted";
+    }
+
+    @RequestMapping(value = "/notepad/deleteAll", method = RequestMethod.GET)
+    public String deleteAll(){
+        List<Notepad> notepads= notepadService.getAllNotepads();
+        for(Notepad it:notepads){
+            notepadService.deleteChild(it.getId());
+        }
+        return "Deleted All";
     }
 
 }

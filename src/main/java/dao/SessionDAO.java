@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface SessionDAO {
 
-    List<Notepads> getAllNotepads();
+    List<Notepad> getAllNotepads();
 
     void create(Notepads notepads);
     void create(Notepad notepad);

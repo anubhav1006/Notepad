@@ -69,12 +69,12 @@ public class NotepadController {
     }
 
     @RequestMapping(value = "/notepad/deleteAll", method = RequestMethod.GET)
-    public String deleteAll(){
+    public Notepad deleteAll(){
         List<Notepad> notepads= notepadService.getAllNotepads();
         for(Notepad it:notepads){
             notepadService.deleteChild(it.getId());
         }
-        return "Deleted All";
+        return new Notepad("","","");
     }
 
 }

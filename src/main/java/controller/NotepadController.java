@@ -62,9 +62,10 @@ public class NotepadController {
         return notepad1;
     }
     @RequestMapping(value = "/notepad/delete/{id}", method = RequestMethod.DELETE)
-    public String deleteNotepad(@PathVariable(value = "id") Long id){
+    public Notepad deleteNotepad(@PathVariable(value = "id") Long id){
+        Notepad notepad1 = notepadService.getNotepadRequestById(id);
         notepadService.deleteChild(id);
-        return "Deleted";
+        return notepad1;
     }
 
     @RequestMapping(value = "/notepad/deleteAll", method = RequestMethod.GET)

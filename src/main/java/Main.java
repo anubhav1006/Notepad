@@ -1,12 +1,11 @@
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@SpringBootApplication
-@ComponentScan(basePackages = {"controller"})
+
+@SpringBootApplication(scanBasePackages = {"controller","config","dao","service"})
+@EntityScan(basePackages = {"model"})
 public class Main {
     public static void main(String[] args) {
 
@@ -14,14 +13,4 @@ public class Main {
 
     }
 
-    /*@Configuration
-    public class WebConfiguration {
-        @Bean
-        ServletRegistrationBean h2servletRegistration(){
-            ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-            registrationBean.addUrlMappings("/console/*");
-            return registrationBean;
-        }
-
-    }*/
 }
